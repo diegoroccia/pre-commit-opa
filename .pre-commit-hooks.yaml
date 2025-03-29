@@ -13,3 +13,5 @@
 
 -   <<: *base
     id: opa-check
+    args:
+    - check
