@@ -1,17 +1,20 @@
 # yaml-language-server: $schema=https://json.schemastore.org/pre-commit-hooks.json
 -   &base
+    language: golang
+    additional_dependencies:
+    - github.com/open-policy-agent/opa@latest
+    entry: opa
+    files: \.rego$
+    require_serial: true
+    # The settings below are going to be overridden in the other hooks
     id: opa-fmt
     name: opa fmt
     args:
     - fmt
     - --write
-    language: golang
-    entry: opa
-    files: \.rego$
-    additional_dependencies:
-    - github.com/open-policy-agent/opa@latest
 
 -   <<: *base
     id: opa-check
+    name: opa check
     args:
     - check
