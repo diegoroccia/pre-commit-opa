@@ -1,4 +1,10 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-hooks.json
 -   &base
+    id: opa-fmt
+    name: opa fmt
+    args:
+    - fmt
+    - --write
     language: golang
     entry: opa
     files: \.rego$
@@ -6,8 +12,4 @@
     - github.com/open-policy-agent/opa@latest
 
 -   <<: *base
-    id: opa-fmt
-    name: opa fmt
-    args:
-    - fmt
-    - --write
+    id: opa-check
