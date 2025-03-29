@@ -1,0 +1,13 @@
+-   &base
+    language: golang
+    entry: opa
+    files: \.rego$
+    additional_dependencies:
+    - github.com/open-policy-agent/opa@latest
+
+-   <<: *base
+    id: opa-fmt
+    name: opa fmt
+    args:
+    - fmt
+    - --write
